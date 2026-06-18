@@ -81,10 +81,11 @@ a {
 }
 
 .hero {
-  min-height: 86vh;
+  height: calc(100vh - 69px);
+  height: calc(100svh - 69px);
   display: flex;
   align-items: center;
-  padding: 96px max(24px, calc((100vw - var(--max-width)) / 2)) 80px;
+  padding: clamp(40px, 8vh, 72px) max(24px, calc((100vw - var(--max-width)) / 2));
   background:
     linear-gradient(90deg, rgba(3, 7, 17, 0.98) 0%, rgba(3, 7, 17, 0.9) 44%, rgba(3, 7, 17, 0.48) 100%),
     linear-gradient(0deg, rgba(3, 7, 17, 0.96), rgba(7, 17, 31, 0.52) 46%, rgba(3, 7, 17, 0.98)),
@@ -116,9 +117,9 @@ p {
 
 h1 {
   max-width: 860px;
-  margin-bottom: 24px;
-  font-size: clamp(2.7rem, 8vw, 5.5rem);
-  line-height: 0.98;
+  margin-bottom: 20px;
+  font-size: clamp(2.25rem, 6.4vw, 4.65rem);
+  line-height: 1;
   letter-spacing: 0;
 }
 
@@ -145,7 +146,7 @@ h3 {
 
 .hero__text {
   max-width: 640px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .hero__actions {
@@ -283,6 +284,41 @@ h3 {
 
 .section--split__body p:last-child {
   margin-bottom: 0;
+}
+
+.read-more {
+  margin-top: 22px;
+}
+
+.read-more summary {
+  display: inline-flex;
+  width: fit-content;
+  color: var(--accent);
+  font-weight: 800;
+  border-bottom: 1px solid currentColor;
+  cursor: pointer;
+  list-style: none;
+}
+
+.read-more summary::-webkit-details-marker {
+  display: none;
+}
+
+.read-more summary:hover {
+  color: var(--accent-strong);
+}
+
+.read-more[open] summary {
+  margin-bottom: 18px;
+}
+
+.read-more__content {
+  padding: 20px 0 0;
+  border-top: 1px solid rgba(56, 189, 248, 0.22);
+}
+
+.read-more__content p {
+  color: var(--muted);
 }
 
 .skill-list {
@@ -476,8 +512,10 @@ h3 {
   }
 
   .hero {
-    min-height: auto;
-    padding-top: 72px;
+    height: calc(100vh - 130px);
+    height: calc(100svh - 130px);
+    padding-top: 44px;
+    padding-bottom: 44px;
     background:
       linear-gradient(180deg, rgba(3, 7, 17, 0.96), rgba(7, 17, 31, 0.88)),
       url("assets/portfolio-hero.png") center / cover no-repeat;
@@ -501,6 +539,15 @@ h3 {
   .main-nav {
     gap: 14px;
     font-size: 0.88rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 12vw, 3.25rem);
+  }
+
+  .hero__text {
+    font-size: 0.98rem;
+    margin-bottom: 22px;
   }
 
   .hero,
